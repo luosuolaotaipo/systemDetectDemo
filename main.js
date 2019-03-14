@@ -1,5 +1,8 @@
 function detect(){
  let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+ let userAgentInfo = document.getElementById('info');
+ let infoText = document.createTextNode(userAgent);
+ userAgentInfo.appendChild(infoText);
  if (/windows phone/i.test(userAgent)) {
     writeRes('not IOS nor Android');
 }else if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream){

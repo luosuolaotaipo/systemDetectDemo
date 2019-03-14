@@ -11,19 +11,22 @@
 <body>
 
     <div style="font-size:24px; margin-top: 30px; text-align: center" id="result"></div>
-    <div style="max-width: 400px; margin-top:20px" id="info"></div>
+    <div style="max-width: 400px; margin:20px 0 20px 20px" id="info"></div>
     <!-- <script src="main.js"></script> -->
     <script type="text/javascript">
         function detect() {
             let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            let userAgentInfo = document.getElementById('info');
+            let infoText = document.createTextNode(userAgent);
+            userAgentInfo.appendChild(infoText);
             if (/windows phone/i.test(userAgent)) {
                 writeRes('not IOS nor Android');
             } else if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-                writeRes('IOS')
+                writeRes('IOS');
             } else if (/Android/.test(userAgent)) {
-                writeRes('Android')
+                writeRes('Android');
             } else {
-                writeRes('not IOS nor Android')
+                writeRes('not IOS nor Android');
             }
         }
 
@@ -34,7 +37,7 @@
 
         }
 
-        window.onload = detect()
+        window.onload = detect();
     </script>
 </body>
 
